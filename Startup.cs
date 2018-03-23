@@ -41,18 +41,16 @@ namespace core2angular5
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            //001 static file demo
-            //delete this line to disable static file in wwwroot
             // app.UseStaticFiles();
 
-            //002 disable cache
             app.UseStaticFiles(new StaticFileOptions(){
-                OnPrepareResponse = (context)=> {
-                    context.Context.Response.Headers["Cache-Control"] = "no-cache, no-store";
-                    context.Context.Response.Headers["Pragma"] = "no-cache";
-                    context.Context.Response.Headers["Expires"] = "-1";
-                }
-            });
+                            OnPrepareResponse = (context)=> {
+                                context.Context.Response.Headers["Cache-Control"] = Configuration["StaticFiles:Headers:Cache-Control"];
+                                context.Context.Response.Headers["Pragma"] = Configuration["StaticFiles:Headers:Pragma"];
+                                context.Context.Response.Headers["Expires"] = Configuration["Expires"];
+                            }
+                        });
+
 
             app.UseMvc(routes =>
             {
