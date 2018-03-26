@@ -12,7 +12,7 @@ namespace core2angular5.Controllers
     public class QuizController : Controller
     {
 
-
+        [HttpGet("Latest/{num}")]
         public IActionResult Latest(int num = 10)
         {
             var sampleQuizzes = new List<QuizViewModel>
