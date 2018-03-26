@@ -8,9 +8,9 @@ using Newtonsoft.Json;
 namespace core2angular5.ViewModels
 {
     [JsonObject(MemberSerialization.OptOut)]
-    public class QuizViewModels
+    public class QuizViewModel
     {
-        public QuizViewModels()
+        public QuizViewModel()
         {
 
         }
