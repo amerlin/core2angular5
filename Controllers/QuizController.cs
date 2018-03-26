@@ -11,6 +11,20 @@ namespace core2angular5.Controllers
     [Route("api/Quiz")]
     public class QuizController : Controller
     {
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var element = new QuizViewModel()
+            {
+                Id = id,
+                Title = $"Quiz{id}",
+                Description = $"Description{id}",
+                CreateDate = DateTime.Now,
+                LastModifiedDate = DateTime.Now
+            };
+
+            return new JsonResult(element, new JsonSerializerSettings(){Formatting = Formatting.Indented});
+        }
 
         [HttpGet("Latest/{num}")]
         public IActionResult Latest(int num = 10)
@@ -61,6 +75,21 @@ namespace core2angular5.Controllers
             });
         }
 
+
+        public IActionResult Put(QuizViewModel model)
+        {
+            return Content("Not implemented (yet)");
+        }
+
+        public IActionResult Post(QuizViewModel model)
+        {
+            return Content("Not implemented (yet)");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            return Content("Not implemented (yet)");
+        }
 
     }
 }
