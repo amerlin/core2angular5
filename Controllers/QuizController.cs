@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using core2angular5.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ namespace core2angular5.Controllers
     [Route("api/Quiz")]
     public class QuizController : Controller
     {
+
 
         public IActionResult Latest(int num = 10)
         {
@@ -42,8 +44,22 @@ namespace core2angular5.Controllers
             return new JsonResult(sampleQuizzes, new JsonSerializerSettings(){Formatting = Formatting.Indented});
         }
 
+        [HttpGet("ByTitle/{num:int?}")]
+        public IActionResult ByTitle(int num = 10)
+        {
+            var sampleQuizzes = ((JsonResult) Latest(num)).Value as List<QuizViewModel>;
+            return new JsonResult(sampleQuizzes.OrderBy(t=>t.Title), new JsonSerializerSettings(){Formatting = Formatting.Indented});
+        }
 
-
+        [HttpGet("Random/{num:int?}")]
+        public IActionResult Random(int num = 10)
+        {
+            var sampleQuizzes = ((JsonResult) Latest(num)).Value as List<QuizViewModel>;
+            return new JsonResult(sampleQuizzes.OrderBy(t => Guid.NewGuid()), new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented
+            });
+        }
 
 
     }
