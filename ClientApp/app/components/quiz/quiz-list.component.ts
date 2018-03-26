@@ -17,8 +17,8 @@ export class QuizListComponent {
         this.title = "Latest Quizzes";
         var url = baseUrl + "api/quiz/Latest/";
         this.http.get<Quiz[]>(url).subscribe(result => {
-                this.quizzes = result;
-            },
+            this.quizzes = result;
+        },
             error => console.error(error));
     }
 
