@@ -1,28 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using core2angular5.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace core2angular5.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Question")]
-    public class QuestionController : Controller
+    [Route("api/Result")]
+    public class ResultController : Controller
     {
         public IActionResult All(int quizId)
         {
-            var sampleQuestions = new List<QuestionViewModel>
+            var sampleQuestions = new List<ResultViewModel>
             {
-                new QuestionViewModel()
+                new ResultViewModel()
                 {
                     Id = 1,
                     QuizId = quizId,
                     Text = "QuestionText",
-                    CreateDate = DateTime.Now,
+                    CreatedDate = DateTime.Now,
                     LastModifiedDate = DateTime.Now
                 }
             };
@@ -30,12 +27,11 @@ namespace core2angular5.Controllers
 
             for (var i = 2; i < 5; i++)
             {
-                sampleQuestions.Add(new QuestionViewModel()
-                {
+                sampleQuestions.Add(new ResultViewModel() { 
                     Id = 1,
                     QuizId = quizId,
                     Text = $"Text{i}",
-                    CreateDate = DateTime.Now,
+                    CreatedDate = DateTime.Now,
                     LastModifiedDate = DateTime.Now
                 });
             }
@@ -43,18 +39,17 @@ namespace core2angular5.Controllers
             return new JsonResult(sampleQuestions, new JsonSerializerSettings() { Formatting = Formatting.Indented });
         }
 
-
         public IActionResult Get(int id)
         {
             return Content("Not implemented (yet)");
         }
 
-        public IActionResult Put(QuestionViewModel model)
+        public IActionResult Put(ResultViewModel model)
         {
             return Content("Not implemented (yet)");
         }
 
-        public IActionResult Post(QuestionViewModel model)
+        public IActionResult Post(ResultViewModel model)
         {
             return Content("Not implemented (yet)");
         }
