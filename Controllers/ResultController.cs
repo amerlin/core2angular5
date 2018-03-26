@@ -38,5 +38,26 @@ namespace core2angular5.Controllers
 
             return new JsonResult(sampleQuestions, new JsonSerializerSettings() { Formatting = Formatting.Indented });
         }
+
+        public IActionResult Get(int id)
+        {
+            return Content("Not implemented (yet)");
+        }
+
+        public IActionResult Put(ResultViewModel model)
+        {
+            return Content("Not implemented (yet)");
+        }
+
+        public IActionResult Post(ResultViewModel model)
+        {
+            return Content("Not implemented (yet)");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            return Content("Not implemented (yet)");
+        }
+
     }
 }

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 
 namespace core2angular5.ViewModels

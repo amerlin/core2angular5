@@ -76,5 +76,20 @@ namespace core2angular5.Controllers
         }
 
 
+        public IActionResult Put(QuizViewModel model)
+        {
+            return Content("Not implemented (yet)");
+        }
+
+        public IActionResult Post(QuizViewModel model)
+        {
+            return Content("Not implemented (yet)");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            return Content("Not implemented (yet)");
+        }
+
     }
 }
